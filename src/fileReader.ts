@@ -8,7 +8,9 @@ export const readOrders = (): Order[] => {
       path.resolve(__dirname, "../data/orders.json"),
       "utf8"
     );
-    return JSON.parse(data) as Order[];
+    const parsedData = JSON.parse(data);
+
+    return parsedData.orders as Order[];
   } catch (error) {
     throw new Error("Failed to read or parse orders.json");
   }
