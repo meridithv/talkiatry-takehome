@@ -1,6 +1,6 @@
 export interface Order {
   customerId: number;
-  sku: string;
+  sku: SKU;
   credits: number;
 }
 
