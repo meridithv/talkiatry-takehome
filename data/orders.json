@@ -1,0 +1,24 @@
+{
+  "orders": [
+    {
+      "customerId": 1,
+      "sku": "balloon",
+      "credits": 53
+    },
+    {
+      "customerId": 2,
+      "sku": "stuffedanimal",
+      "credits": 375
+    },
+    {
+      "customerId": 3,
+      "sku": "crayon",
+      "credits": 20
+    },
+    {
+      "customerId": 4,
+      "sku": "crayon",
+      "credits": 200
+    }
+  ]
+}
