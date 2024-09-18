@@ -13,8 +13,14 @@ export interface Shipment {
   quantity: number;
 }
 
-export interface OrderSummary {
+export interface PurchaseSummary {
   customerId: number;
   shipment: Shipment[];
   remainingCredits: number;
+}
+
+export enum SKU {
+  Balloon = "balloon",
+  StuffedAnimal = "stuffedanimal",
+  Crayon = "crayon",
 }
