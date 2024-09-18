@@ -17,7 +17,9 @@ export const processOrder = (
 
   const quantity = Math.floor(credits / adjustedUnitPrice);
   const remainingCredits = credits - quantity * adjustedUnitPrice;
-  const shipments: Shipment[] = [{ sku, quantity }, ...bonusItems];
+  const shipments: Shipment[] = [{ sku, quantity }, ...bonusItems].filter(
+    (item) => item.quantity > 0
+  );
 
   return {
     customerId,
