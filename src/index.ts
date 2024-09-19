@@ -4,8 +4,8 @@ import { Order, PriceList, PurchaseSummary } from "./models";
 
 const main = () => {
   try {
-    const orders: Order[] = readOrders();
-    const prices: PriceList = readPrices();
+    const orders: Order[] = readOrders("data/orders.json");
+    const prices: PriceList = readPrices("data/prices.json");
 
     orders.forEach((order) => {
       const result: PurchaseSummary = processOrder(order, prices);
