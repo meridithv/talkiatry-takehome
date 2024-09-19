@@ -4,12 +4,8 @@ export interface Order {
   credits: number;
 }
 
-export interface PriceList {
-  [sku: string]: number;
-}
-
 export interface Shipment {
-  sku: string;
+  sku: SKU;
   quantity: number;
 }
 
@@ -18,6 +14,8 @@ export interface PurchaseSummary {
   shipment: Shipment[];
   remainingCredits: number;
 }
+
+export type PriceList = Record<SKU, number>;
 
 export enum SKU {
   Balloon = "balloon",

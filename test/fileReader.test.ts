@@ -1,17 +1,18 @@
 import fs from "fs";
 import { readOrders, readPrices } from "../src/services/fileReader";
+import { SKU } from "../src/models";
 
 jest.mock("fs");
 
 describe("FileReader", () => {
   const mockOrders = JSON.stringify({
-    orders: [{ customerId: 1, sku: "balloon", credits: 50 }],
+    orders: [{ customerId: 1, sku: SKU.Balloon, credits: 50 }],
   });
 
   const mockPrices = JSON.stringify({
-    balloon: 5,
-    stuffedanimal: 10,
-    crayon: 3,
+    [SKU.Balloon]: 5,
+    [SKU.StuffedAnimal]: 10,
+    [SKU.Crayon]: 3,
   });
 
   beforeEach(() => {
@@ -27,7 +28,7 @@ describe("FileReader", () => {
       expect.stringContaining("mock/path/to/orders.json"),
       "utf8"
     );
-    expect(orders).toEqual([{ customerId: 1, sku: "balloon", credits: 50 }]);
+    expect(orders).toEqual([{ customerId: 1, sku: SKU.Balloon, credits: 50 }]);
   });
 
   test("readPrices should return parsed price data", () => {
@@ -39,7 +40,11 @@ describe("FileReader", () => {
       expect.stringContaining("mock/path/to/prices.json"),
       "utf8"
     );
-    expect(prices).toEqual({ balloon: 5, stuffedanimal: 10, crayon: 3 });
+    expect(prices).toEqual({
+      [SKU.Balloon]: 5,
+      [SKU.StuffedAnimal]: 10,
+      [SKU.Crayon]: 3,
+    });
   });
 
   test("readOrders should throw an error if file reading fails", () => {
