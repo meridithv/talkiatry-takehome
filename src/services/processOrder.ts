@@ -1,5 +1,5 @@
-import { Order, PriceList, PurchaseSummary, Shipment, SKU } from "./models";
-import { getPerkStrategy } from "./perkFactory";
+import { Order, PriceList, PurchaseSummary, Shipment, SKU } from "../models";
+import { getPerkStrategy } from "../strategies/perkFactory";
 
 export const processOrder = (
   order: Order,

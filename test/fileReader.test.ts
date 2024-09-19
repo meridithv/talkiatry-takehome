@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { readOrders, readPrices } from "../src/fileReader";
+import { readOrders, readPrices } from "../src/services/fileReader";
 
 jest.mock("fs");
 

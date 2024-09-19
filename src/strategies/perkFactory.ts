@@ -1,4 +1,4 @@
-import { SKU } from "./models";
+import { SKU } from "../models";
 import {
   PerkStrategy,
   FiveStuffedAnimalBonus,

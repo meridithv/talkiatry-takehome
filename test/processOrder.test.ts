@@ -1,4 +1,4 @@
-import { processOrder } from "../src/processOrder";
+import { processOrder } from "../src/services/processOrder";
 import { Order, PriceList, SKU } from "../src/models";
 
 const testDayPrices: PriceList = {

@@ -1,4 +1,4 @@
-import { Order, Shipment, SKU } from "./models";
+import { Order, Shipment, SKU } from "../models";
 
 export interface PerkStrategy {
   award(

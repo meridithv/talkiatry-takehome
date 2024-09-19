@@ -1,5 +1,5 @@
-import { readOrders, readPrices } from "./fileReader";
-import { processOrder } from "./processOrder";
+import { readOrders, readPrices } from "./services/fileReader";
+import { processOrder } from "./services/processOrder";
 import { Order, PriceList, PurchaseSummary } from "./models";
 
 const main = () => {
