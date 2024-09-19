@@ -99,7 +99,7 @@ describe("Process Order", () => {
         { sku: SKU.Crayon, quantity: 6 },
         { sku: SKU.Balloon, quantity: 3 },
       ],
-      remainingCredits: 0,
+      remainingCredits: 2,
     });
   });
 
