@@ -6,9 +6,9 @@ import { readOrders, readPrices } from "../src/fileReader";
 jest.mock("fs");
 
 describe("FileReader", () => {
-  const mockOrders = JSON.stringify([
-    { customerId: 1, sku: "balloon", credits: 50 },
-  ]);
+  const mockOrders = JSON.stringify({
+    orders: [{ customerId: 1, sku: "balloon", credits: 50 }],
+  });
 
   const mockPrices = JSON.stringify({
     balloon: 5,
