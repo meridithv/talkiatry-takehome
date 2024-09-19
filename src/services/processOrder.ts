@@ -6,6 +6,11 @@ export const processOrder = (
   prices: PriceList
 ): PurchaseSummary => {
   const { customerId, sku, credits } = order;
+
+  if (!isValidSKU(sku)) {
+    throw new Error(`Invalid SKU: ${sku}`);
+  }
+
   let unitPrice = prices[sku];
 
   const { adjustedUnitPrice, bonusItems } = applyPerks(
@@ -45,4 +50,8 @@ const applyPerks = (
   }
 
   return { adjustedUnitPrice, bonusItems };
+};
+
+const isValidSKU = (sku: string): sku is SKU => {
+  return Object.values(SKU).includes(sku as SKU);
 };
