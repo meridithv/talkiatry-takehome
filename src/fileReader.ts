@@ -12,7 +12,9 @@ export const readOrders = (): Order[] => {
 
     return parsedData.orders as Order[];
   } catch (error) {
-    throw new Error("Failed to read or parse orders.json");
+    throw new Error(
+      `Failed to read or parse orders.json, with this error: ${error}`
+    );
   }
 };
 
@@ -24,6 +26,8 @@ export const readPrices = (): PriceList => {
     );
     return JSON.parse(data) as PriceList;
   } catch (error) {
-    throw new Error("Failed to read or parse prices.json");
+    throw new Error(
+      `Failed to read or parse prices.json, with this error: ${error}`
+    );
   }
 };
