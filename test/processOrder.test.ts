@@ -28,13 +28,13 @@ describe("Process Order", () => {
     });
   });
 
-  test("Not enough credits to buy anything", () => {
-    const order: Order = { customerId: 3, sku: SKU.Balloon, credits: 2 };
+  test("Not enough credits to buy even the cheapest product", () => {
+    const order: Order = { customerId: 10, sku: SKU.Balloon, credits: 1 };
     const shipment = processOrder(order, testDayPrices);
     expect(shipment).toEqual({
-      customerId: 3,
+      customerId: 10,
       shipment: [],
-      remainingCredits: 2,
+      remainingCredits: 1,
     });
   });
 
@@ -111,6 +111,23 @@ describe("Process Order", () => {
       shipment: [
         { sku: SKU.Crayon, quantity: 5 },
         { sku: SKU.Balloon, quantity: 2 },
+      ],
+      remainingCredits: 0,
+    });
+  });
+
+  test("Non-stack test: Order 25 stuffed animals, get exactly five for free (not six)", () => {
+    const order: Order = {
+      customerId: 11,
+      sku: SKU.StuffedAnimal,
+      credits: 250,
+    };
+    const shipment = processOrder(order, testDayPrices);
+    expect(shipment).toEqual({
+      customerId: 11,
+      shipment: [
+        { sku: SKU.StuffedAnimal, quantity: 25 },
+        { sku: SKU.StuffedAnimal, quantity: 5 },
       ],
       remainingCredits: 0,
     });
